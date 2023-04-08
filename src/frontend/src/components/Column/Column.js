@@ -1,6 +1,6 @@
 import styles from "./Column.module.scss";
 import { useState, useContext } from "react";
-import MyContext from '../../createContext.js';
+import MyContext from '../../CreateContext.js';
 
 function Column({ onClick, col_id,
   colKey,

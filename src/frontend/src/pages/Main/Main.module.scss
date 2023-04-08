@@ -1,5 +1,3 @@
-@use '../../assets/styles/mixins' as mixin;
-
 .grid {
  display: flex;
  flex-direction: column;
@@ -10,16 +8,6 @@
     border-radius: 15px;
     background-color: var(--gray-1);
     max-width: 100%;
-
-    @include mixin.md-lt{
-        padding: 50px 0;
-    }
-    @include mixin.sm-lt {
-        background-color: var(--text-color);
-        margin: 20px;
-        padding: 0px 0;
-
-    }
 }
 
 textarea {

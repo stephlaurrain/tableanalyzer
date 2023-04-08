@@ -1,7 +1,7 @@
 import styles from "./Table.module.scss";
 import Column from "../Column/Column";
 import { useEffect, useState, useContext } from "react";
-import MyContext from '../../createContext.js';
+import MyContext from '../../CreateContext.js';
 
 function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabId, id }) {
   const [data, setData] = useState([]);

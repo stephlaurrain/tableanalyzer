@@ -1,7 +1,7 @@
 import styles from "./Main.module.scss";
 import Table from "../../components/Table/Table";
 import { useEffect, useState } from "react";
-import MyContext from '../../createContext.js';
+import MyContext from '../../CreateContext.js';
 
 function Mainpage() {
 
