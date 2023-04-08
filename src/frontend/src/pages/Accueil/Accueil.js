@@ -1,5 +1,5 @@
 import styles from "./Accueil.module.scss";
-import Table from "../../components/tables/table";
+import Table from "../../components/table/table";
 import { useEffect, useState } from "react";
 
 function Accueilpage() {

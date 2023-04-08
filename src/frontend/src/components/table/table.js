@@ -1,6 +1,19 @@
 import styles from "./table.module.scss";
+import Column from "../column/column";
+import { useEffect, useState } from "react";
 
 function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
+/*  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchdata() {
+      const response = await fetch(`http://localhost:3000/col/${id}`);
+      const data = await response.json();
+      setData(data);
+    }
+    fetchdata();
+  }, []); */
+
   return (
     <div className={styles.table_container} id={id}>
       <table>
@@ -44,6 +57,7 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
           </tr>
         </thead>
       </table>
+      <Column/>
     </div>
 
   );
