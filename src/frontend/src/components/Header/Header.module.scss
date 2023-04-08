@@ -1,0 +1,41 @@
+@use '../../assets/styles/mixins' as mixin;
+
+.header {
+  justify-content: space-between;
+  height: 68px;
+  margin: 40px 100px 0 45px;
+
+.activeStyle {
+  text-decoration: underline;
+}
+  a {
+  color: var(--primary);
+  text-decoration: none;
+  margin-left: 55px;
+  font-size: 24px;
+  font-weight: 500;
+  
+  }
+  .logo{
+    width: 210px;
+    height: 68px;
+    cursor: pointer;
+  }
+
+  @include mixin.sm-lt {
+    margin: 20px;
+    a {
+      margin-left: 15px;
+      font-size: 12px;
+    }
+    .logo {
+      width: 145px;
+    height: 50px;
+    }
+    ul{
+      padding: 0px;
+    }
+  }
+}
+
+

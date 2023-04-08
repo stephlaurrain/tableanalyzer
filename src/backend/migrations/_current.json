@@ -1,0 +1,149 @@
+{
+    "tables": {
+        "Columns": {
+            "tableName": "Columns",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "col_id": {
+                    "field": "col_id",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_key": {
+                    "field": "col_key",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_name": {
+                    "field": "col_name",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_type": {
+                    "field": "col_type",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_nullable": {
+                    "field": "col_nullable",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_length": {
+                    "field": "col_length",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_default": {
+                    "field": "col_default",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_count": {
+                    "field": "col_count",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "col_desc": {
+                    "field": "col_desc",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_reference": {
+                    "field": "col_reference",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_infos": {
+                    "field": "col_infos",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_model": {
+                    "field": "col_model",
+                    "seqType": "Sequelize.STRING"
+                },
+                "col_comment": {
+                    "field": "col_comment",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "col_mapped": {
+                    "field": "col_mapped",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "TableId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tables",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "TableId",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "Tables": {
+            "tableName": "Tables",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "tab_id": {
+                    "field": "tab_id",
+                    "seqType": "Sequelize.STRING"
+                },
+                "tab_collection": {
+                    "field": "tab_collection",
+                    "seqType": "Sequelize.STRING"
+                },
+                "tab_name": {
+                    "field": "tab_name",
+                    "seqType": "Sequelize.STRING"
+                },
+                "tab_desc": {
+                    "field": "tab_desc",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "tab_enum": {
+                    "field": "tab_enum",
+                    "seqType": "Sequelize.STRING"
+                },
+                "tab_count": {
+                    "field": "tab_count",
+                    "seqType": "Sequelize.STRING"
+                },
+                "tab_model": {
+                    "field": "tab_model",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "path": "/root/backend/migrations/_current.json",
+    "backupPath": "/root/backend/migrations/_current_bak.json",
+    "exists": false,
+    "revision": 1
+}

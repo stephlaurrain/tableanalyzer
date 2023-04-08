@@ -1,0 +1,136 @@
+@use '../../assets/styles/mixins' as mixin;
+
+.container{
+    justify-content: space-between;
+    margin: 50px 100px;
+    max-width: 100%;
+    @include mixin.sm-lt {
+       flex-direction: column; 
+       margin: 15px 20px;
+    }
+
+    .containerLeft {
+    max-width: 80%;
+    @include mixin.sm-lt {
+        max-width: 100%;
+    }
+        h1 {
+            font-size: 36px;
+            font-weight: 500;
+            color : var(--primary);
+            @include mixin.sm-lt {
+               font-size: 18px; 
+            }
+        }
+        p {
+            font-size: 18px;
+            font-weight: 500;
+            color : var(--primary);
+            margin: 10px 0;
+            @include mixin.sm-lt {
+                font-size: 12px;
+            }
+        }   
+
+        ul {
+            list-style: none;
+            padding-left: 0px;
+            margin: 20px 0 0 0;
+            color: var(--text-color);
+            @include mixin.sm-lt {
+                margin: 10px 0 0 0 ; 
+            }
+
+            li {
+                background-color: var(--primary);
+                font-size: 14px;
+                font-weight: 500;
+                padding: 5px;
+                margin-right: 10px;
+                text-align: center;
+                border-radius: 10px;
+                @include mixin.sm-lt {
+                    font-size: 11px;  
+                }
+            }
+        }
+       
+    }
+    .containerRight{
+        max-width: 50%;
+        align-items: flex-end;
+        @include mixin.sm-lt {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            max-width: 100%;
+            align-items: center;
+        }
+        .host{
+            justify-content: center;
+            margin: 20px 0;
+            @include mixin.sm-lt {
+                margin: 0; 
+            }
+         p{
+            width: min-content;
+            height: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary);
+            margin: 0 5px;
+            padding: 10px;
+            text-align: right;
+            @include mixin.sm-lt {
+                font-size: 12px; 
+            }
+         }
+         img {
+            width: 64px;
+            height: 64px;
+            border-radius: 40px;
+            @include mixin.sm-lt {
+                height: 40px;
+                width: 40px;
+            }
+         }
+        }
+        .stars{
+            img{
+                margin-left: 10px;
+                @include mixin.sm-lt {
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 10px;
+                    margin-left: 0;
+                }
+            }
+
+        }
+    }
+}
+
+.collapse {
+    margin: 70px;
+    max-width: 100%;
+    @include mixin.sm-lt {
+        flex-direction: column;
+        margin: 20px;
+    }
+    div{
+        flex: 1 1 0;
+        h2{
+            font-size: 18px;
+            }
+        p{
+            font-size:18px ;
+            height: 150px;
+            @include mixin.sm-lt {
+               font-size: 12px ;
+               height: auto;
+            }
+            }
+        li{
+            list-style: none;
+        }
+    }    
+}
