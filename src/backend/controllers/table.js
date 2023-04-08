@@ -1,5 +1,7 @@
 const models = require("../models");
 const log = require('../utils/winston');
+const { Op } = require('sequelize');
+
 require('dotenv').config();
 
 exports.getAllTab = (req, res) => {
@@ -18,9 +20,43 @@ exports.getAllTab = (req, res) => {
   }
 };
 
+exports.getFromSearch = (req, res) => {
+  try {
+    const searchObject = req.body.search;
+    console.log(searchObject);
+    models.Table.findAll({
+      where: {
+        [Op.or]: [
+          {
+            tab_desc: {
+              [Op.like]: `%${searchObject.text}%`
+            }
+          },
+          {
+            tab_name: {
+              [Op.like]: `%${searchObject.text}%`
+            }
+          }, // Condition de recherche sur le champ "postId"
+        ]
+
+      }
+    })
+      .then((Tabs) => {
+        console.log(Tabs);
+        res.status(200).json(Tabs)
+      }
+      )
+      .catch(() => res.status(500).json({ 'error': "error getting tabs" }));
+  }
+  catch (error) {
+    log.error(`ERROR Get All Tabs =  ${error}`);
+    return res.status(500).json({ error })
+  }
+};
+
 exports.updateTab = (req, res) => {
-   try {
-    console.log("eee"+req.body.tab)
+  try {
+    console.log("eee" + req.body.tab)
 
     const tabObject = req.body.tab;
     console.log(tabObject)
