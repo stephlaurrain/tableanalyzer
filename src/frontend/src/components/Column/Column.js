@@ -58,7 +58,7 @@ function Column({ onClick, col_id,
           return response.json();
         })
         .then(data => {
-          console.log("Request response PUT :", data);
+          // console.log("Request response PUT :", data);
         })
         .catch(error => {
           console.error("Request error PUT :", error);

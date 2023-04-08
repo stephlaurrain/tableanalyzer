@@ -9,7 +9,6 @@ function Mainpage() {
     if (childValue.trim() !== '') {
       const filteredVal = childValue.split("."); // Diviser la chaîne en utilisant " : " comme délimiteur
       const refTableToSearch = filteredVal[1].split(" :")[0];
-      console.log('inside main:', refTableToSearch);
       handleSearch(refTableToSearch);
     }
 
@@ -50,7 +49,7 @@ function Mainpage() {
         })
         .then(data => {
           setData(data);
-          console.log("Request response :", data);
+          // console.log("Request response :", data);
         })
         .catch(error => {
           console.error("Request error :", error);

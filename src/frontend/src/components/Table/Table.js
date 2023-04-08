@@ -7,12 +7,11 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
   const [data, setData] = useState([]);
 
 
-  const [setValue] = useState('');
+  const [value, setValue] = useState('');
   const myContext = useContext(MyContext);
   const handleChildClick = (childValue) => {
-    console.log('dans table :', childValue);
     myContext.onClick(childValue)
-    setValue(childValue); // Mise à jour de la valeur dans le composant parent
+    setValue(childValue); // set value up to date in the parent component
   };
 
   useEffect(() => {
@@ -46,7 +45,7 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
         return response.json();
       })
       .then(data => {
-        console.log("Request response PUT :", data);
+        // console.log("Request response PUT :", data);
       })
       .catch(error => {
         console.error("Request error PUT :", error);
