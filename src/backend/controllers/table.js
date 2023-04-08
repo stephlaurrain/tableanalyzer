@@ -23,7 +23,7 @@ exports.getAllTab = (req, res) => {
 exports.getFromSearch = (req, res) => {
   try {
     const searchObject = req.body.search;
-    console.log(searchObject);
+    // console.log(searchObject);
     models.Table.findAll({
       where: {
         [Op.or]: [
@@ -42,7 +42,7 @@ exports.getFromSearch = (req, res) => {
       }
     })
       .then((Tabs) => {
-        console.log(Tabs);
+        // console.log(Tabs);
         res.status(200).json(Tabs)
       }
       )
@@ -56,11 +56,8 @@ exports.getFromSearch = (req, res) => {
 
 exports.updateTab = (req, res) => {
   try {
-    console.log("eee" + req.body.tab)
-
     const tabObject = req.body.tab;
-    console.log(tabObject)
-    //#VOIR
+    // console.log(tabObject)
     models.Table.update({ tab_comment: tabObject.tab_comment }, {
       where: {
         id: req.params.id
