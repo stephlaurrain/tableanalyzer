@@ -8,10 +8,10 @@ function Table({ title, image, id }) {
         <img className={styles.cardsimg} src={image} alt={title} />
         <h3>{title}</h3>
       </div>
-      <div class="table-container" id="$table_id">
+      <div className="table-container" id="$table_id">
         <table>
           <tr>
-            <td class="table-name">$table_name</td>
+            <td className="table-name">$table_name</td>
           </tr>
           <tr>
             <td>$table_desc</td>
@@ -26,7 +26,7 @@ function Table({ title, image, id }) {
             <td>SELECT * FROM $collection.$table_name</td>
           </tr>
           <tr>
-            <td><textarea class="model-textarea">$model</textarea></td>
+            <td><textarea className="model-textarea">$model</textarea></td>
           </tr>
 
         </table>
@@ -36,14 +36,14 @@ function Table({ title, image, id }) {
             <th>Colonne</th>
             <th>Type</th>
             <th>Null</th>
-            <th class="length">Ln</th>
-            <th class="default">Default</th>
-            <th class="count">Count</th>
-            <th class="desc">Description</th>
-            <th class="link">Links</th>
-            <th class="model">Model</th>
-            <th class="comm">Comments</th>
-            <th class="mapped">Mapped</th>
+            <th className="length">Ln</th>
+            <th className="default">Default</th>
+            <th className="count">Count</th>
+            <th className="desc">Description</th>
+            <th className="link">Links</th>
+            <th className="model">Model</th>
+            <th className="comm">Comments</th>
+            <th className="mapped">Mapped</th>
             <th>V</th>
             $rows
           </tr>
