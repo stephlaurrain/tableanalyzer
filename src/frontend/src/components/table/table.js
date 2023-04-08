@@ -3,7 +3,7 @@ import Column from "../column/column";
 import { useEffect, useState } from "react";
 
 function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
-/*  const [data, setData] = useState([]);
+ const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchdata() {
@@ -12,7 +12,7 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
       setData(data);
     }
     fetchdata();
-  }, []); */
+  }, []);
 
   return (
     <div className={styles.table_container} id={id}>
@@ -56,8 +56,31 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
             <th>V</th>
           </tr>
         </thead>
+        <tbody>
+        {data.map((column) => (
+            <Column
+              key={column.id}
+              colKey={column.col_key}
+              colName={column.col_name}
+              colType={column.col_type}
+              colNullable={column.col_nullable}
+              colLength={column.col_length}
+              colDefault={column.col_default}
+              colCount={column.col_count}
+              colDesc={column.col_desc}
+              colReference={column.col_reference}
+              colInfos={column.col_infos}
+              colModel={column.col_model}
+              colComment={column.col_comment}
+              colMapped={column.col_mapped}
+              id={column.col_id}
+            />
+            ))}
+      </tbody>
       </table>
-      <Column/>
+
+
+
     </div>
 
   );

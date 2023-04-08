@@ -1,8 +1,9 @@
 @use '../../assets/styles/mixins' as mixin;
 
-table,
-th,
-td {
-  border: 1px solid;
+.comm_textarea{
+  height: 120px;
 }
 
+.comm_textarea, .mapped_textarea {
+  width:97%;
+}

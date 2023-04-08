@@ -26,7 +26,8 @@ function Accueilpage() {
               tabEnum={table.tab_enum}
               tabCount={table.tab_count}
               tabModel={table.tab_model}
-              id={table.tab_id}
+              tabId={table.tab_id}
+              id={table.id}
             />
           ))}
         </div>

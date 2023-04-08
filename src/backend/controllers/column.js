@@ -27,7 +27,6 @@ exports.getColsOfTab = (req, res) => {
 };
 
 
-
 exports.updateCol = (req, res, next) => {
   try {
     const colObject = req.body.col;
