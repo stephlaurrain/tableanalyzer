@@ -36,6 +36,7 @@ function Accueilpage() {
         return response.json();
       })
       .then(data => {
+        setData(data);
         console.log("Request response :", data);
       })
       .catch(error => {
