@@ -3,7 +3,7 @@ import Column from "../Column/Column";
 import { useEffect, useState, useContext } from "react";
 import MyContext from '../../CreateContext.js';
 
-function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabId, id }) {
+function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabLastCreated, tabLastUpdated,tabId, id }) {
   const [data, setData] = useState([]);
 
 
@@ -72,6 +72,9 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
           </tr>
           <tr>
             <td>{tabDesc}</td>
+          </tr>
+          <tr>
+            <td>Last created : {tabLastCreated} - Last updated : {tabLastUpdated}</td>
           </tr>
           <tr>
             <td>{tabEnum}</td>

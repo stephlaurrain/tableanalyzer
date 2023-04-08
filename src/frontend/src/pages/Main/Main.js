@@ -92,6 +92,8 @@ function Mainpage() {
               tabCount={table.tab_count}
               tabModel={table.tab_model}
               tabComment={table.tab_comment}
+              tabLastCreated={table.tab_last_created}
+              tabLastUpdated={table.tab_last_updated}
               tabId={table.tab_id}
               id={table.id}
               onClick={handlePageClick}
