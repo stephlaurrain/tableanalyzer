@@ -14,25 +14,68 @@ function Accueilpage() {
     fetchdata();
   }, []);
 
-  return (
+  const handleSearch = (searchText) => {
 
-      <div className={styles.contentcard}>
-        <div className={styles.grid}>
-          {data.map((table) => (
-            <Table
-              key={table.id}
-              tabName={table.tab_name}
-              tabDesc={table.tab_desc}
-              tabEnum={table.tab_enum}
-              tabCount={table.tab_count}
-              tabModel={table.tab_model}
-              tabComment={table.tab_comment}
-              tabId={table.tab_id}
-              id={table.id}
-            />
-          ))}
-        </div>
+    let data =  {
+      "search": {
+          "text": searchText
+      }
+    }
+
+    fetch(`http://localhost:3000/tab`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Request error ");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Request response :", data);
+      })
+      .catch(error => {
+        console.error("Request error :", error);
+      });
+  };
+
+  const [tabCommentText, setText] = useState('');
+
+  const handleTextAreaChange = (event) => {
+    setText(event.target.value);
+  };
+
+  const handleBlur = (event) => {
+    handleSearch(event.target.value);
+  };
+
+
+
+
+  return (
+    <div className={styles.contentcard}>
+      <div><input value={tabCommentText} onChange={handleTextAreaChange} onBlur={handleBlur}></input></div>
+
+      <div className={styles.grid}>
+        {data.map((table) => (
+          <Table
+            key={table.id}
+            tabName={table.tab_name}
+            tabDesc={table.tab_desc}
+            tabEnum={table.tab_enum}
+            tabCount={table.tab_count}
+            tabModel={table.tab_model}
+            tabComment={table.tab_comment}
+            tabId={table.tab_id}
+            id={table.id}
+          />
+        ))}
       </div>
+    </div>
 
 
   );

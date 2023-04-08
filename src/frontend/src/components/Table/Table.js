@@ -31,15 +31,15 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabI
     })
       .then(response => {
         if (!response.ok) {
-          throw new Error("Erreur lors de la requête PUT");
+          throw new Error("Request error PUT");
         }
         return response.json();
       })
       .then(data => {
-        console.log("Réponse de la requête PUT :", data);
+        console.log("Request response PUT :", data);
       })
       .catch(error => {
-        console.error("Erreur lors de la requête PUT :", error);
+        console.error("Request error PUT :", error);
       });
   };
 
