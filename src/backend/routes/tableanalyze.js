@@ -13,7 +13,7 @@ router.put('/col/:id', colController.createCol);
 
 // Tab routes
 router.get('/tab', tabController.getAllTab);
-router.put('/tab/:id', tabController.createTab);
+router.put('/tab/:id', tabController.updateTab);
 /*
 router.get('/:id', auth, saucesController.getASauce);
 router.post('/', auth, multer, saucesController.createSauce);

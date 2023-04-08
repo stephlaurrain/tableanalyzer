@@ -4,7 +4,9 @@ require('dotenv').config();
 
 exports.getAllTab = (req, res) => {
   try {
-    models.Table.findAll()
+    models.Table.findAll({
+      limit: 5
+    })
       .then((Tabs) => res.status(200).json(Tabs))
       .catch(() => res.status(500).json({ 'error': "error getting tabs" }));
 
@@ -16,14 +18,20 @@ exports.getAllTab = (req, res) => {
   }
 };
 
-exports.updateTab = (req, res, next) => {
-  try {
+exports.test = (req, res) => {
+  console.log("TEST")
+}
+
+exports.updateTab = (req, res) => {
+   try {
+    console.log("eee"+req.body.tab)
+
     const tabObject = req.body.tab;
+    console.log(tabObject)
     //#VOIR
-    // Change everyone without a last name to "Doe"
-    models.Table.update({ tab_comment: clObject.tab_comment }, {
+    models.Table.update({ tab_comment: tabObject.tab_comment }, {
       where: {
-        tab_id: tabObject.tab_id
+        id: req.params.id
       }
     }).then((Tabs) => res.status(200).json(Tabs))
       .catch(() => res.status(500).json({ 'error': "error updating tab" }));

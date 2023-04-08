@@ -2,7 +2,7 @@ import styles from "./Table.module.scss";
 import Column from "../Column/Column";
 import { useEffect, useState } from "react";
 
-function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
+function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabId, id }) {
  const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -13,6 +13,46 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
     }
     fetchdata();
   }, []);
+
+  const handleUpdateData = (comm) => {
+
+    let data =  {
+      "tab": {
+          "tab_comment": comm
+      }
+    }
+
+    fetch(`http://localhost:3000/tab/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Erreur lors de la requête PUT");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Réponse de la requête PUT :", data);
+      })
+      .catch(error => {
+        console.error("Erreur lors de la requête PUT :", error);
+      });
+  };
+
+  const handleBlur = (event) => {
+    handleUpdateData(event.target.value);
+  };
+
+  const [tabCommentText, setText] = useState(tabComment);
+
+  const handleTextAreaChange = (event) => {
+    setText(event.target.value);
+
+  };
 
   return (
     <div className={styles.table_container} id={tabId}>
@@ -34,8 +74,14 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
             <td>SELECT * FROM $collection.{tabName}</td>
           </tr>
           <tr>
-            <td><textarea className={styles.model_textarea} value={tabModel}></textarea></td>
+            <td><textarea className={styles.model_textarea} value={tabModel}></textarea>
+                <textarea className={styles.model_textarea} value={tabCommentText} onChange={handleTextAreaChange} onBlur={handleBlur}></textarea>
+            </td>
+
+
+
           </tr>
+
         </tbody>
       </table>
       <table>

@@ -26,6 +26,7 @@ function Accueilpage() {
               tabEnum={table.tab_enum}
               tabCount={table.tab_count}
               tabModel={table.tab_model}
+              tabComment={table.tab_comment}
               tabId={table.tab_id}
               id={table.id}
             />
