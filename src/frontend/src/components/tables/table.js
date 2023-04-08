@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import styles from "./Logement.module.scss";
+import styles from "./table.module.scss";
 
-function Logement({ title, image, id }) {
+function Table({ title, image, id }) {
   return (
     <NavLink to={`/logement/${id}`}>
       <div className={styles.cards}>
@@ -12,4 +12,4 @@ function Logement({ title, image, id }) {
   );
 }
 
-export default Logement;
+export default Table;
