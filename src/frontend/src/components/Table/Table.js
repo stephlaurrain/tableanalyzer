@@ -1,9 +1,19 @@
 import styles from "./Table.module.scss";
 import Column from "../Column/Column";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import MyContext from '../../createContext.js';
 
 function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabId, id }) {
- const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+
+
+  const [value, setValue] = useState('');
+  const myContext = useContext(MyContext);
+  const handleChildClick = (childValue) => {
+    console.log('dans table :', childValue);
+    myContext.onClick(childValue)
+    setValue(childValue); // Mise à jour de la valeur dans le composant parent
+  };
 
   useEffect(() => {
     async function fetchdata() {
@@ -16,9 +26,9 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
 
   const handleUpdateData = (comm) => {
 
-    let data =  {
+    let data = {
       "tab": {
-          "tab_comment": comm
+        "tab_comment": comm
       }
     }
 
@@ -75,7 +85,7 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
           </tr>
           <tr>
             <td><textarea className={styles.model_textarea} value={tabModel}></textarea>
-                <textarea className={styles.model_textarea} value={tabCommentText} onChange={handleTextAreaChange} onBlur={handleBlur}></textarea>
+              <textarea className={styles.model_textarea} value={tabCommentText} onChange={handleTextAreaChange} onBlur={handleBlur}></textarea>
             </td>
 
 
@@ -103,27 +113,29 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
           </tr>
         </thead>
         <tbody>
-        {data.map((column) => (
-            <Column
-              key={column.id}
-              col_id={column.col_id}
-              colKey={column.col_key}
-              colName={column.col_name}
-              colType={column.col_type}
-              colNullable={column.col_nullable}
-              colLength={column.col_length}
-              colDefault={column.col_default}
-              colCount={column.col_count}
-              colDesc={column.col_desc}
-              colReference={column.col_reference}
-              colInfos={column.col_infos}
-              colModel={column.col_model}
-              colComment={column.col_comment}
-              colMapped={column.col_mapped}
-              id={column.id}
-            />
+          <MyContext.Provider value={{ onClick: handleChildClick }}>
+            {data.map((column) => (
+              <Column
+                key={column.id}
+                col_id={column.col_id}
+                colKey={column.col_key}
+                colName={column.col_name}
+                colType={column.col_type}
+                colNullable={column.col_nullable}
+                colLength={column.col_length}
+                colDefault={column.col_default}
+                colCount={column.col_count}
+                colDesc={column.col_desc}
+                colReference={column.col_reference}
+                colInfos={column.col_infos}
+                colModel={column.col_model}
+                colComment={column.col_comment}
+                colMapped={column.col_mapped}
+                id={column.id}
+              />
             ))}
-      </tbody>
+          </MyContext.Provider>
+        </tbody>
       </table>
 
 

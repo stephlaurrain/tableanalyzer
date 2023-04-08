@@ -1,7 +1,8 @@
 import styles from "./Column.module.scss";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import MyContext from '../../createContext.js';
 
-function Column({ col_id,
+function Column({ onClick, col_id,
   colKey,
   colName,
   colType,
@@ -15,6 +16,13 @@ function Column({ col_id,
   colModel,
   colComment,
   colMapped, id}) {
+
+    const myContext = useContext(MyContext);
+
+    const handleRefClick = () => {
+      myContext.onClick(colReference); // Appel de la fonction de rappel onClick avec la valeur en argument
+    };
+
     const [textareaValue1, setTextareaValue1] = useState(colComment);
     const [textareaValue2, setTextareaValue2] = useState(colMapped);
 
@@ -57,6 +65,8 @@ function Column({ col_id,
         });
     };
 
+    ///
+
 
 return (
 
@@ -69,7 +79,7 @@ return (
     <td>{colDefault}</td>
     <td>{colCount}</td>
     <td>{colDesc}</td>
-    <td>{colReference}</td>
+    <td onClick={handleRefClick}>{colReference}</td>
     <td>{colModel}</td>
     <td><textarea className={styles.comm_textarea} value={textareaValue1} onChange={handleChange1}></textarea></td>
     <td><textarea className={styles.mapped_textarea} value={textareaValue2} onChange={handleChange2} ></textarea></td>

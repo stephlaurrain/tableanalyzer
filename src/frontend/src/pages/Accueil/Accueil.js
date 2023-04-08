@@ -1,8 +1,20 @@
 import styles from "./Accueil.module.scss";
 import Table from "../../components/Table/Table";
 import { useEffect, useState } from "react";
+import MyContext from '../../createContext.js';
 
 function Accueilpage() {
+
+  const handlePageClick = (childValue) => {
+
+    const filteredVal = childValue.split("."); // Diviser la chaîne en utilisant " : " comme délimiteur
+    const refTableToSearch = filteredVal[1].split(" :")[0];
+    console.log('inside accueil:', refTableToSearch);
+    handleSearch(refTableToSearch)
+
+    // Faites ici ce que vous souhaitez avec l'événement de clic propagé et la valeur associée
+  };
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -67,7 +79,9 @@ function Accueilpage() {
 
         <div className={styles.searchzone}><input className={styles.searchinput} value={tabCommentText} onChange={handleTextAreaChange} onKeyDown={handleKeyDown}></input></div>
       </div>
+
       <div className={styles.grid}>
+      <MyContext.Provider value={{ onClick: handlePageClick }}>
         {data.map((table) => (
           <Table
             key={table.id}
@@ -80,8 +94,10 @@ function Accueilpage() {
             tabComment={table.tab_comment}
             tabId={table.tab_id}
             id={table.id}
+            onClick={handlePageClick}
           />
         ))}
+        </MyContext.Provider>
       </div>
     </div>
 
