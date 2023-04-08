@@ -59,12 +59,13 @@ function Accueilpage() {
 
   return (
     <div className={styles.contentcard}>
-      <div><input value={tabCommentText} onChange={handleTextAreaChange} onBlur={handleBlur}></input></div>
+      <div className={styles.searchzone}><input className={styles.searchinput} value={tabCommentText} onChange={handleTextAreaChange} onBlur={handleBlur}></input></div>
 
       <div className={styles.grid}>
         {data.map((table) => (
           <Table
             key={table.id}
+            tabCollection={table.tab_collection}
             tabName={table.tab_name}
             tabDesc={table.tab_desc}
             tabEnum={table.tab_enum}

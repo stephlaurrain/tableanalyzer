@@ -2,7 +2,7 @@ import styles from "./Table.module.scss";
 import Column from "../Column/Column";
 import { useEffect, useState } from "react";
 
-function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabId, id }) {
+function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabId, id }) {
  const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabI
             <td>count : {tabCount}</td>
           </tr>
           <tr>
-            <td>SELECT * FROM $collection.{tabName}</td>
+            <td>SELECT * FROM {tabCollection}.{tabName}</td>
           </tr>
           <tr>
             <td><textarea className={styles.model_textarea} value={tabModel}></textarea>
