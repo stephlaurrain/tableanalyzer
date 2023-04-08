@@ -17,7 +17,7 @@ function Column({ col_id,
 
 return (
 
-<tr id={id} className="col-row">
+<tr id={col_id} className="col-row">
     <td>{colKey}</td>
     <td>{colName}</td>
     <td>{colType}</td>
