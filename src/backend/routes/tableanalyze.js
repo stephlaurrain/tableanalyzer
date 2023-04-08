@@ -9,7 +9,7 @@ const tabController = require('../controllers/table');
 // Col routes
 // router.get('/col', colController.getAllCol);
 router.get('/col/:id', colController.getColsOfTab);
-router.put('/col/:id', colController.createCol);
+router.put('/col/:id', colController.updateCol);
 
 // Tab routes
 router.get('/tab', tabController.getAllTab);

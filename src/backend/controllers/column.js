@@ -27,7 +27,7 @@ exports.getColsOfTab = (req, res) => {
 };
 
 
-exports.updateCol = (req, res, next) => {
+exports.updateColold = (req, res, next) => {
   try {
     const colObject = req.body.col;
     //#VOIR
@@ -46,6 +46,28 @@ exports.updateCol = (req, res, next) => {
   }
 };
 
+exports.updateCol = (req, res) => {
+  try {
+   console.log("eee"+req.body.col)
+
+   const colObject = req.body.col;
+   console.log(colObject)
+   //#VOIR
+   models.Column.update({ col_comment: colObject.col_comment }, {
+     where: {
+       id: req.params.id
+     }
+   }).then((Cols) => res.status(200).json(Cols))
+     .catch(() => res.status(500).json({ 'error': "error updating col" }));
+   // https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#simple-update-queries
+ }
+ catch (error) {
+   log.error(`ERROR create colle colles =  ${error}`);
+   return res.status(500).json({ error })
+ }
+};
+
+
 exports.createCol = (req, res, next) => {
   try {
     const colObject = req.body.col;
@@ -58,7 +80,7 @@ exports.createCol = (req, res, next) => {
       .catch((error) => res.status(500).json({ error }));
   }
   catch (error) {
-    log.error(`ERROR create table columns =  ${error}`);
+    log.error(`ERROR create column =  ${error}`);
     return res.status(500).json({ error })
   }
 
