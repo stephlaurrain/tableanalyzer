@@ -16,12 +16,12 @@ function Accueilpage() {
 
   const handleSearch = (searchText) => {
 
-    let data =  {
+    let data = {
       "search": {
-          "text": searchText
+        "text": searchText
       }
     }
-
+    if (searchText.length >2) {
     fetch(`http://localhost:3000/tab`, {
       method: "POST",
       headers: {
@@ -42,6 +42,7 @@ function Accueilpage() {
       .catch(error => {
         console.error("Request error :", error);
       });
+    }
   };
 
   const [tabCommentText, setText] = useState('');
@@ -50,8 +51,10 @@ function Accueilpage() {
     setText(event.target.value);
   };
 
-  const handleBlur = (event) => {
-    handleSearch(event.target.value);
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch(event.target.value);
+    }
   };
 
 
@@ -59,8 +62,11 @@ function Accueilpage() {
 
   return (
     <div className={styles.contentcard}>
-      <div className={styles.searchzone}><input className={styles.searchinput} value={tabCommentText} onChange={handleTextAreaChange} onBlur={handleBlur}></input></div>
+      <div className={styles.staticmenu}>
 
+
+        <div className={styles.searchzone}><input className={styles.searchinput} value={tabCommentText} onChange={handleTextAreaChange} onKeyDown={handleKeyDown}></input></div>
+      </div>
       <div className={styles.grid}>
         {data.map((table) => (
           <Table

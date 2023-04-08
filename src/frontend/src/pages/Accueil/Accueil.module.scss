@@ -28,15 +28,27 @@ textarea {
     max-height: 100px;
 }
 
+.staticmenu {
+    box-shadow: 10px 10px 5px black;
+    background-color:var(--searchpop);
+    top:15px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index:9999;
+    border-radius:5px;
+    display:block;
+    position:fixed;
+}
+
 .searchzone {
+    padding:15px;
     display: flex;
     justify-content: center;
-    padding-bottom: 15px;
+
 }
 
 .searchinput {
     border-radius: 5px;
     height: 25px;
     font-size:20px;
-    box-shadow: 5px 5px 15px 5px #000000;
 }
