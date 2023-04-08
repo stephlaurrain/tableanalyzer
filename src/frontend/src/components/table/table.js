@@ -15,7 +15,7 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
   }, []);
 
   return (
-    <div className={styles.table_container} id={id}>
+    <div className={styles.table_container} id={tabId}>
       <table>
         <tbody>
           <tr>
@@ -60,6 +60,7 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
         {data.map((column) => (
             <Column
               key={column.id}
+              col_id={column.col_id}
               colKey={column.col_key}
               colName={column.col_name}
               colType={column.col_type}
@@ -73,7 +74,7 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
               colModel={column.col_model}
               colComment={column.col_comment}
               colMapped={column.col_mapped}
-              id={column.col_id}
+              id={column.id}
             />
             ))}
       </tbody>
