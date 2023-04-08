@@ -42,6 +42,11 @@ exports.getFromSearch = (req, res) => {
               [Op.like]: `%${searchObject.text}%`
             }
           },
+          {
+            tab_collection: {
+              [Op.like]: `%${searchObject.text}%`
+            }
+          },
 
           // Condition de recherche sur le champ "postId"
         ]
