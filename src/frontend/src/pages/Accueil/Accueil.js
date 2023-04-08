@@ -6,11 +6,12 @@ import MyContext from '../../createContext.js';
 function Accueilpage() {
 
   const handlePageClick = (childValue) => {
-
-    const filteredVal = childValue.split("."); // Diviser la chaîne en utilisant " : " comme délimiteur
-    const refTableToSearch = filteredVal[1].split(" :")[0];
-    console.log('inside accueil:', refTableToSearch);
-    handleSearch(refTableToSearch)
+    if (childValue.trim() != '') {
+      const filteredVal = childValue.split("."); // Diviser la chaîne en utilisant " : " comme délimiteur
+      const refTableToSearch = filteredVal[1].split(" :")[0];
+      console.log('inside accueil:', refTableToSearch);
+      handleSearch(refTableToSearch);
+    }
 
     // Faites ici ce que vous souhaitez avec l'événement de clic propagé et la valeur associée
   };
@@ -33,27 +34,27 @@ function Accueilpage() {
         "text": searchText
       }
     }
-    if (searchText.length >2) {
-    fetch(`http://localhost:3000/tab`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Request error ");
-        }
-        return response.json();
+    if (searchText.length > 2) {
+      fetch(`http://localhost:3000/tab`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       })
-      .then(data => {
-        setData(data);
-        console.log("Request response :", data);
-      })
-      .catch(error => {
-        console.error("Request error :", error);
-      });
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Request error ");
+          }
+          return response.json();
+        })
+        .then(data => {
+          setData(data);
+          console.log("Request response :", data);
+        })
+        .catch(error => {
+          console.error("Request error :", error);
+        });
     }
   };
 
@@ -81,22 +82,22 @@ function Accueilpage() {
       </div>
 
       <div className={styles.grid}>
-      <MyContext.Provider value={{ onClick: handlePageClick }}>
-        {data.map((table) => (
-          <Table
-            key={table.id}
-            tabCollection={table.tab_collection}
-            tabName={table.tab_name}
-            tabDesc={table.tab_desc}
-            tabEnum={table.tab_enum}
-            tabCount={table.tab_count}
-            tabModel={table.tab_model}
-            tabComment={table.tab_comment}
-            tabId={table.tab_id}
-            id={table.id}
-            onClick={handlePageClick}
-          />
-        ))}
+        <MyContext.Provider value={{ onClick: handlePageClick }}>
+          {data.map((table) => (
+            <Table
+              key={table.id}
+              tabCollection={table.tab_collection}
+              tabName={table.tab_name}
+              tabDesc={table.tab_desc}
+              tabEnum={table.tab_enum}
+              tabCount={table.tab_count}
+              tabModel={table.tab_model}
+              tabComment={table.tab_comment}
+              tabId={table.tab_id}
+              id={table.id}
+              onClick={handlePageClick}
+            />
+          ))}
         </MyContext.Provider>
       </div>
     </div>
