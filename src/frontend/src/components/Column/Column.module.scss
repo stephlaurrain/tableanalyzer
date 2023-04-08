@@ -7,3 +7,15 @@
 .comm_textarea, .mapped_textarea {
   width:97%;
 }
+
+.validate_but {
+  width:40px;
+  height:40px;
+  border-radius: 10px;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor:pointer;
+  box-shadow: 5px 5px 15px 5px #000000;
+}

@@ -15,12 +15,24 @@ function Column({ col_id,
   colModel,
   colComment,
   colMapped, id}) {
-    const [data, setData] = useState([]);
-    const handleUpdateData = (comm) => {
+    const [textareaValue1, setTextareaValue1] = useState(colComment);
+    const [textareaValue2, setTextareaValue2] = useState(colMapped);
+
+
+    const handleChange1 = (event) => {
+      setTextareaValue1(event.target.value);
+    }
+
+    const handleChange2 = (event) => {
+      setTextareaValue2(event.target.value);
+    }
+
+    const handleSubmit = () => {
 
       let data =  {
         "col": {
-            "col_comment": comm
+            "col_comment": textareaValue1,
+            "col_mapped" : textareaValue2
         }
       }
 
@@ -45,16 +57,7 @@ function Column({ col_id,
         });
     };
 
-    const handleBlur = (event) => {
-      handleUpdateData(event.target.value);
-    };
 
-    const [colCommentText, setText] = useState(colComment);
-
-    const handleTextAreaChange = (event) => {
-      setText(event.target.value);
-
-    };
 return (
 
 <tr id={col_id} className="col-row">
@@ -68,9 +71,9 @@ return (
     <td>{colDesc}</td>
     <td><div>{colReference}</div><div>{colInfos}</div></td>
     <td>{colModel}</td>
-    <td><textarea className={styles.comm_textarea} value={colCommentText} onChange={handleTextAreaChange} onBlur={handleBlur}></textarea></td>
-    <td><textarea className={styles.mapped_textarea} value={colMapped}></textarea></td>
-    <td className="validate-but">V</td>
+    <td><textarea className={styles.comm_textarea} value={textareaValue1} onChange={handleChange1}></textarea></td>
+    <td><textarea className={styles.mapped_textarea} value={textareaValue2} onChange={handleChange2} ></textarea></td>
+    <td className={styles.validate_but} onClick={handleSubmit}>V</td>
 </tr>
 );
 }

@@ -48,12 +48,8 @@ exports.updateColold = (req, res, next) => {
 
 exports.updateCol = (req, res) => {
   try {
-   console.log("eee"+req.body.col)
-
    const colObject = req.body.col;
-   console.log(colObject)
-   //#VOIR
-   models.Column.update({ col_comment: colObject.col_comment }, {
+   models.Column.update({ col_comment: colObject.col_comment, col_mapped: colObject.col_mapped }, {
      where: {
        id: req.params.id
      }
@@ -86,35 +82,4 @@ exports.createCol = (req, res, next) => {
 
 };
 
-// POST
-exports.oldCreateCol = (req, res, next) => {
-  try {
-    const colObject = req.body.col;
-    // peut faire T Cl = await models.Col.findOne
-    models.Column.findOne({ where: { idggate: colObject.idggate, col_id: colObject.col_id } })
-      .then((Cl) => {
-        // console.log("FOUND");
-        if (Cl) {
-          Cl.comm = colObject.comm;
-          Cl.mapped = colObject.mapped;
-          Cl.save()
-            .then(() => res.status(201).json({ message: 'Col' }))
-            .catch((error) => res.status(500).json({ error }));
-        } else {
-          const newcl = new models.Col({
-            ...colObject
-          });
-
-          newcl.save()
-            .then(() => res.status(201).json({ message: 'Col' }))
-            .catch((error) => res.status(500).json({ error }));
-        }
-      }).catch((error) => res.status(500).json({ error }));
-  }
-  catch (error) {
-    log.error(`ERROR create table analyze =  ${error}`);
-    return res.status(500).json({ error })
-  }
-
-};
 

@@ -99,7 +99,7 @@ function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabI
             <th className={styles.model}>Model</th>
             <th className={styles.comm}>Comments</th>
             <th className={styles.mapped}>Mapped</th>
-            <th>V</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

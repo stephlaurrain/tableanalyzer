@@ -18,10 +18,6 @@ exports.getAllTab = (req, res) => {
   }
 };
 
-exports.test = (req, res) => {
-  console.log("TEST")
-}
-
 exports.updateTab = (req, res) => {
    try {
     console.log("eee"+req.body.tab)
