@@ -15,20 +15,21 @@ function Accueilpage() {
   }, []);
 
   return (
-    <div className="flex-fill">
+
       <div className={styles.contentcard}>
         <div className={styles.grid}>
-          {data.map((logement) => (
+          {data.map((table) => (
             <Table
-              key={logement.id}
-              title={logement.title}
-              image={logement.cover}
-              id={logement.id}
+              key={table.id}
+              title={table.title}
+              image={table.cover}
+              id={table.id}
             />
           ))}
         </div>
       </div>
-    </div>
+
+
   );
 }
 export default Accueilpage;
