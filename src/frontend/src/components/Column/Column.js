@@ -1,4 +1,4 @@
-import styles from "./column.module.scss";
+import styles from "./Column.module.scss";
 
 function Column({ col_id,
   colKey,

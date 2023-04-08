@@ -1,5 +1,5 @@
-import styles from "./table.module.scss";
-import Column from "../column/column";
+import styles from "./Table.module.scss";
+import Column from "../Column/Column";
 import { useEffect, useState } from "react";
 
 function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
