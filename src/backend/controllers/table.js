@@ -36,7 +36,14 @@ exports.getFromSearch = (req, res) => {
             tab_name: {
               [Op.like]: `%${searchObject.text}%`
             }
-          }, // Condition de recherche sur le champ "postId"
+          },
+          {
+            tab_comment: {
+              [Op.like]: `%${searchObject.text}%`
+            }
+          },
+
+          // Condition de recherche sur le champ "postId"
         ]
 
       }

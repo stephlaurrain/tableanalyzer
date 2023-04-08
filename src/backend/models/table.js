@@ -21,7 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     tab_enum: DataTypes.STRING,
     tab_count: DataTypes.STRING,
     tab_model: DataTypes.TEXT,
-    tab_comment: DataTypes.TEXT
+    tab_comment: DataTypes.TEXT,
+    tab_created: DataTypes.STRING,
+    tab_lastmaj : DataTypes.STRING,
 
   }, {
     sequelize,
