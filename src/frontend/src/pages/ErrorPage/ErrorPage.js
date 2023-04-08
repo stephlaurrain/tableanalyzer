@@ -5,9 +5,9 @@ function ErrorPage() {
   return (
     <div className={`${styles.error} d-flex flex-column align-items-center`}>
       <h1>404</h1>
-      <p>Oups ! La page que vous demandez n'existe pas</p>
+      <p>Oups ! You did it again</p>
       <div>
-        <NavLink to="/">Retourner sur la page d'accueil</NavLink>
+        <NavLink to="/">Get back</NavLink>
       </div>
     </div>
   );

@@ -1,15 +1,15 @@
-import styles from "./Accueil.module.scss";
+import styles from "./Main.module.scss";
 import Table from "../../components/Table/Table";
 import { useEffect, useState } from "react";
 import MyContext from '../../createContext.js';
 
-function Accueilpage() {
+function Mainpage() {
 
   const handlePageClick = (childValue) => {
     if (childValue.trim() != '') {
       const filteredVal = childValue.split("."); // Diviser la chaîne en utilisant " : " comme délimiteur
       const refTableToSearch = filteredVal[1].split(" :")[0];
-      console.log('inside accueil:', refTableToSearch);
+      console.log('inside main:', refTableToSearch);
       handleSearch(refTableToSearch);
     }
 
@@ -105,4 +105,4 @@ function Accueilpage() {
 
   );
 }
-export default Accueilpage;
+export default Mainpage;
