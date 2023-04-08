@@ -6,7 +6,7 @@ import MyContext from '../../CreateContext.js';
 function Mainpage() {
 
   const handlePageClick = (childValue) => {
-    if (childValue.trim() != '') {
+    if (childValue.trim() !== '') {
       const filteredVal = childValue.split("."); // Diviser la chaîne en utilisant " : " comme délimiteur
       const refTableToSearch = filteredVal[1].split(" :")[0];
       console.log('inside main:', refTableToSearch);

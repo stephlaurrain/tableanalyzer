@@ -7,7 +7,7 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
   const [data, setData] = useState([]);
 
 
-  const [value, setValue] = useState('');
+  const [setValue] = useState('');
   const myContext = useContext(MyContext);
   const handleChildClick = (childValue) => {
     console.log('dans table :', childValue);
@@ -22,7 +22,7 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
       setData(data);
     }
     fetchdata();
-  }, []);
+  }, [id]);
 
   const handleUpdateData = (comm) => {
 
