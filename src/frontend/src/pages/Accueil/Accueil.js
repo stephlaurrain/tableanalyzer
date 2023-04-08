@@ -16,7 +16,7 @@ function Accueilpage() {
 
   return (
     <div className="flex-fill">
-      <div className={styles.contentCard}>
+      <div className={styles.contentcard}>
         <div className={styles.grid}>
           {data.map((logement) => (
             <Table
