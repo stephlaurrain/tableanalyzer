@@ -9,7 +9,7 @@ CREATE TABLE `Tables` (
   `tab_model` text DEFAULT NULL,
   `tab_comment` text DEFAULT NULL,
   `tab_last_created` varchar(20) DEFAULT NULL,
-  `tab_last_upd` varchar(20) DEFAULT NULL,
+  `tab_last_updated` varchar(20) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),

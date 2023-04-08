@@ -23,8 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     tab_model: DataTypes.TEXT,
     tab_comment: DataTypes.TEXT,
     tab_last_created: DataTypes.STRING,
-    tab_last_maj : DataTypes.STRING,
-
+    tab_last_updated: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Table',
