@@ -7,14 +7,26 @@ exports.getAllCol = (req, res) => {
     models.Column.findAll()
       .then((Cols) => res.status(200).json(Cols))
       .catch(() => res.status(500).json({ 'error': "error getting cols" }));
-
-    res.status(201)
   }
   catch (error) {
     log.error(`ERROR Get All Cols =  ${error}`);
     return res.status(500).json({ error })
   }
 };
+
+exports.getColsOfTab = (req, res) => {
+  try {
+    models.Column.findAll({ where: { TableId: req.params.id }})
+      .then((Cols) => res.status(200).json(Cols))
+      .catch(() => res.status(500).json({ 'error': "error getting cols" }));
+  }
+  catch (error) {
+    log.error(`ERROR Get All Cols =  ${error}`);
+    return res.status(500).json({ error })
+  }
+};
+
+
 
 exports.updateCol = (req, res, next) => {
   try {

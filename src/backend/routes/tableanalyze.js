@@ -7,7 +7,8 @@ const colController = require('../controllers/column');
 const tabController = require('../controllers/table');
 
 // Col routes
-router.get('/col', colController.getAllCol);
+// router.get('/col', colController.getAllCol);
+router.get('/col/:id', colController.getColsOfTab);
 router.put('/col/:id', colController.createCol);
 
 // Tab routes
