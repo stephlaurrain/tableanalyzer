@@ -69,7 +69,7 @@ return (
     <td>{colDefault}</td>
     <td>{colCount}</td>
     <td>{colDesc}</td>
-    <td><div>{colReference}</div><div>{colInfos}</div></td>
+    <td>{colReference}</td>
     <td>{colModel}</td>
     <td><textarea className={styles.comm_textarea} value={textareaValue1} onChange={handleChange1}></textarea></td>
     <td><textarea className={styles.mapped_textarea} value={textareaValue2} onChange={handleChange2} ></textarea></td>

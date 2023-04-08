@@ -59,7 +59,7 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
       <table>
         <tbody>
           <tr>
-            <td className={styles.table_name}>{tabName}</td>
+            <td className={styles.table_name}>{tabCollection}.{tabName}</td>
           </tr>
           <tr>
             <td>{tabDesc}</td>

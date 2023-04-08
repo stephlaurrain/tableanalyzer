@@ -24,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     col_count: DataTypes.TEXT,
     col_desc: DataTypes.STRING,
     col_reference: DataTypes.STRING,
-    col_infos: DataTypes.STRING,
     col_model: DataTypes.STRING,
     col_comment: DataTypes.TEXT,
     col_mapped: DataTypes.TEXT,
