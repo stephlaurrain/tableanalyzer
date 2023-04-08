@@ -7,7 +7,7 @@ function Accueilpage() {
 
   useEffect(() => {
     async function fetchdata() {
-      const response = await fetch("http://localhost:4000/data.json");
+      const response = await fetch("http://localhost:3000/tab");
       const data = await response.json();
       setData(data);
     }
@@ -21,9 +21,12 @@ function Accueilpage() {
           {data.map((table) => (
             <Table
               key={table.id}
-              title={table.title}
-              image={table.cover}
-              id={table.id}
+              tabName={table.tab_name}
+              tabDesc={table.tab_desc}
+              tabEnum={table.tab_enum}
+              tabCount={table.tab_count}
+              tabModel={table.tab_model}
+              id={table.tab_id}
             />
           ))}
         </div>

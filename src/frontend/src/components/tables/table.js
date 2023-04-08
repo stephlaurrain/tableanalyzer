@@ -1,48 +1,50 @@
 import styles from "./table.module.scss";
 
-function Table({ title, image, id }) {
+function Table({ tabName, tabDesc, tabEnum, tabCount, tabModel, tabId, id }) {
   return (
-       <div class={styles.table_container} id="$table_id">
-        <table>
+    <div className={styles.table_container} id={id}>
+      <table>
+        <tbody>
           <tr>
-            <td class={styles.table_name}>$table_name</td>
+            <td className={styles.table_name}>{tabName}</td>
           </tr>
           <tr>
-            <td>$table_desc</td>
+            <td>{tabDesc}</td>
           </tr>
           <tr>
-            <td>$table_enum</td>
+            <td>{tabEnum}</td>
           </tr>
           <tr>
-            <td>count : $table_count</td>
+            <td>count : {tabCount}</td>
           </tr>
           <tr>
-            <td>SELECT * FROM $collection.$table_name</td>
+            <td>SELECT * FROM $collection.{tabName}</td>
           </tr>
           <tr>
-            <td><textarea class={styles.model_textarea}>$model</textarea></td>
+            <td><textarea className={styles.model_textarea} value={tabModel}></textarea></td>
           </tr>
-
-        </table>
-        <table>
+        </tbody>
+      </table>
+      <table>
+        <thead>
           <tr>
             <th>Is Key</th>
             <th>Colonne</th>
             <th>Type</th>
             <th>Null</th>
-            <th class={styles.length}>Ln</th>
-            <th class={styles.default}>Default</th>
-            <th class={styles.count}>Count</th>
-            <th class={styles.desc}>Description</th>
-            <th class={styles.link}>Links</th>
-            <th class={styles.model}>Model</th>
-            <th class={styles.comm}>Comments</th>
-            <th class={styles.mapped}>Mapped</th>
+            <th className={styles.length}>Ln</th>
+            <th className={styles.default}>Default</th>
+            <th className={styles.count}>Count</th>
+            <th className={styles.desc}>Description</th>
+            <th className={styles.link}>Links</th>
+            <th className={styles.model}>Model</th>
+            <th className={styles.comm}>Comments</th>
+            <th className={styles.mapped}>Mapped</th>
             <th>V</th>
-            $rows
           </tr>
-        </table>
-      </div>
+        </thead>
+      </table>
+    </div>
 
   );
 }
