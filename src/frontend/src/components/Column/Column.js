@@ -19,28 +19,28 @@ function Column({ onClick, col_id,
 
     const myContext = useContext(MyContext);
 
-    const handleRefClick = () => {
+    const handleClickRef = () => {
       myContext.onClick(colReference); // Appel de la fonction de rappel onClick avec la valeur en argument
     };
 
-    const [textareaValue1, setTextareaValue1] = useState(colComment);
-    const [textareaValue2, setTextareaValue2] = useState(colMapped);
+    const [txtareaCommVal, setTxtareaCommVal] = useState(colComment);
+    const [txtareaMappedVal, setTxtareaMappedVal] = useState(colMapped);
 
 
-    const handleChange1 = (event) => {
-      setTextareaValue1(event.target.value);
+    const handleChangeComm = (event) => {
+      setTxtareaCommVal(event.target.value);
     }
 
-    const handleChange2 = (event) => {
-      setTextareaValue2(event.target.value);
+    const handleChangeMapped = (event) => {
+      setTxtareaMappedVal(event.target.value);
     }
 
     const handleSubmit = () => {
 
       let data =  {
         "col": {
-            "col_comment": textareaValue1,
-            "col_mapped" : textareaValue2
+            "col_comment": txtareaCommVal,
+            "col_mapped" : txtareaMappedVal
         }
       }
 
@@ -79,10 +79,10 @@ return (
     <td>{colDefault}</td>
     <td>{colCount}</td>
     <td>{colDesc}</td>
-    <td className={styles.td_ref} onClick={handleRefClick}>{colReference}</td>
+    <td className={styles.td_ref} onClick={handleClickRef}>{colReference}</td>
     <td>{colModel}</td>
-    <td><textarea className={styles.comm_textarea} value={textareaValue1} onChange={handleChange1}></textarea></td>
-    <td><textarea className={styles.mapped_textarea} value={textareaValue2} onChange={handleChange2} ></textarea></td>
+    <td><textarea className={styles.comm_textarea} value={txtareaCommVal} onChange={handleChangeComm}></textarea></td>
+    <td><textarea className={styles.mapped_textarea} value={txtareaMappedVal} onChange={handleChangeMapped} ></textarea></td>
     <td className={styles.validate_but} onClick={handleSubmit}>V</td>
 </tr>
 );

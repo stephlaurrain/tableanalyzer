@@ -52,13 +52,13 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
       });
   };
 
-  const handleBlur = (event) => {
+  const handleBlurTxtAreaComm = (event) => {
     handleUpdateData(event.target.value);
   };
 
   const [tabCommentText, setText] = useState(tabComment);
 
-  const handleTextAreaChange = (event) => {
+  const handleChangeTxtAreaComm = (event) => {
     setText(event.target.value);
 
   };
@@ -84,13 +84,9 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
           </tr>
           <tr>
             <td><textarea className={styles.model_textarea} value={tabModel}></textarea>
-              <textarea className={styles.model_textarea} value={tabCommentText} onChange={handleTextAreaChange} onBlur={handleBlur}></textarea>
+              <textarea className={styles.model_textarea} value={tabCommentText} onChange={handleChangeTxtAreaComm} onBlur={handleBlurTxtAreaComm}></textarea>
             </td>
-
-
-
           </tr>
-
         </tbody>
       </table>
       <table>
