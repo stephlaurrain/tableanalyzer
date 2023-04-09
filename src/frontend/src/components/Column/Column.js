@@ -1,5 +1,6 @@
 import styles from "./Column.module.scss";
 import { useState, useContext } from "react";
+import validate from "../../assets/images/validate.png";
 import MyContext from '../../CreateContext.js';
 
 function Column({ onClick, col_id,
@@ -83,7 +84,7 @@ return (
     <td>{colModel}</td>
     <td><textarea className={styles.comm_textarea} value={txtareaCommVal} onChange={handleChangeComm}></textarea></td>
     <td><textarea className={styles.mapped_textarea} value={txtareaMappedVal} onChange={handleChangeMapped} ></textarea></td>
-    <td className={styles.validate_but} onClick={handleSubmit}>V</td>
+    <td className="validate_but" onClick={handleSubmit}><img src={validate} alt="Validate" /></td>
 </tr>
 );
 }

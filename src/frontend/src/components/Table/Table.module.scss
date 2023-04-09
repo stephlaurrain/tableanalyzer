@@ -31,6 +31,12 @@ th {
   background-color: var(--primary);
 }
 
+.table_info_zone {
+  display: flex;
+  flex-direction: row;
+}
+
+
 .count {
   width:15%;
 }

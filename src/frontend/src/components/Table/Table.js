@@ -1,4 +1,5 @@
 import styles from "./Table.module.scss";
+import validate from "../../assets/images/validate.png";
 import Column from "../Column/Column";
 import { useEffect, useState, useContext } from "react";
 import MyContext from '../../CreateContext.js';
@@ -58,7 +59,7 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
 
   const [tabCommentText, setText] = useState(tabComment);
 
-  const handleChangeTxtAreaComm = (event) => {
+  const handleValidTxtAreaComm = (event) => {
     setText(event.target.value);
 
   };
@@ -86,9 +87,11 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
             <td>SELECT * FROM {tabCollection}.{tabName}</td>
           </tr>
           <tr>
-            <td><textarea className={styles.model_textarea} value={tabModel}></textarea>
-              <textarea className={styles.model_textarea} value={tabCommentText} onChange={handleChangeTxtAreaComm} onBlur={handleBlurTxtAreaComm}></textarea>
+            <td className={styles.table_info_zone} ><textarea className={styles.model_textarea} value={tabModel}></textarea>
+              <textarea className={styles.model_textarea} value={tabCommentText} onChange={handleValidTxtAreaComm} onBlur={handleBlurTxtAreaComm}></textarea>
+              <div className="validate_but" onClick={handleValidTxtAreaComm}><img src={validate} alt="Validate" /></div>
             </td>
+
           </tr>
         </tbody>
       </table>
