@@ -78,6 +78,7 @@ function Mainpage() {
 
 
         <div className={styles.searchzone}><input className={styles.searchinput} value={tabCommentText} onChange={handleTextAreaChange} onKeyDown={handleKeyDown}></input></div>
+        <div className={styles.countzone}>{data.length}</div>
       </div>
 
       <div className={styles.grid}>
