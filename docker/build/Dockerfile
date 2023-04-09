@@ -12,6 +12,7 @@ WORKDIR "/root"
 # COPY /conf/phpmyadmin/phpmyadmin.conf .
 
 RUN apt-get update && apt-get install -y nano vim mc \
+    apache2 \
     apt-utils \
     xz-utils \
     supervisor;
@@ -31,6 +32,9 @@ RUN mkdir /root/trf; \
     # service mariadb start;
 
 COPY /conf/supervisord.conf /etc/supervisor/conf.d
+
+RUN chown -R www-data:www-data /var/www/html && chmod -R g+s /var/www/html;\
+    chmod -R 777 /var/www/html;
 #clean
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*; \
      apt autoclean;
@@ -40,7 +44,7 @@ RUN npm install -g yarn; \
     yarn global add sequelize-cli; \
     yarn global add sequelize-mig
 # faire make init
-EXPOSE 3000 4000 3306
+EXPOSE 80 3000 4000 3306
 ENTRYPOINT ["/usr/bin/supervisord"]
 # CMD [ "/root/install/init.sh" ]
 
