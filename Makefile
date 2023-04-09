@@ -6,7 +6,7 @@ IMAGE_NAME=tableanalyze_img
 DOCKER_USER=docker
 REMOTE_ROOT=-w '/root'
 
-start:
+startdocker:
 	service docker start
 
 listctn:
@@ -29,6 +29,9 @@ startapache:
 
 startmysql:
 	docker exec  $(REMOTE_ROOT) $(CONTAINER_NAME) /etc/init.d/mysql start
+
+stop:
+	docker stop $(CONTAINER_NAME)
 
 startbackend:
 	docker exec  $(REMOTE_ROOT) $(CONTAINER_NAME) bash -c 'cd /root/backend && yarn start'
@@ -58,7 +61,7 @@ builderprune:
 	docker builder prune
 
 #param make erase CONTAINER_NAME="mon_container" lancé par make erase CONTAINER_NAME="pro"
-erase: stopall
+erase: stop
 	docker container rm $(CONTAINER_NAME) && docker image rm $$(docker images '*$(CONTAINER_NAME)*')
 
 #
