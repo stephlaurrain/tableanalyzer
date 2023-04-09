@@ -40,7 +40,7 @@ RUN npm install -g yarn; \
     yarn global add sequelize-cli; \
     yarn global add sequelize-mig
 # faire make init
-EXPOSE 80 3000 4000 3306
+EXPOSE 3000 4000 3306
 ENTRYPOINT ["/usr/bin/supervisord"]
 # CMD [ "/root/install/init.sh" ]
 
