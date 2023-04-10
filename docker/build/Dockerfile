@@ -12,9 +12,10 @@ WORKDIR "/root"
 # COPY /conf/phpmyadmin/phpmyadmin.conf .
 
 RUN apt-get update && apt-get install -y nano vim mc \
-    apache2 \
+    nginx \
     apt-utils \
     xz-utils \
+    systemctl \
     supervisor;
 
 #node
@@ -31,7 +32,7 @@ RUN mkdir /root/trf; \
     /etc/init.d/mariadb start;
     # service mariadb start;
 
-COPY /conf/supervisord.conf /etc/supervisor/conf.d
+# COPY /conf/supervisord.conf /etc/supervisor/conf.d
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R g+s /var/www/html;\
     chmod -R 777 /var/www/html;
