@@ -83,5 +83,14 @@ buildraw:
 browser:
 	python3 browser.py
 
+commitctn:
+	docker commit $(CONTAINER_NAME) $(IMAGE_NAME)_prod
+
+savectn:
+	docker save -o $(CONTAINER_NAME).tar $(IMAGE_NAME)_prod
+# docker save -o tableanalyze_ctn.tar tableanalyze_tableanalyze_img
+
+loadctn:
+	docker load --input $(CONTAINER_NAME).tar
 
 .FORCE:
