@@ -15,8 +15,9 @@ const normalizePort = (val) => {
   return false;
 };
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || 3000);
 app.set('port', port);
+const host = process.env.HOST;
 
 // Error handling
 const errorHandler = (error) => {
@@ -47,7 +48,13 @@ server.on('error', errorHandler);
 server.on('listening', () => {
   const address = server.address();
   const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
-  console.log(`Listening on ${bind}`);
+  console.log(`Listening on ${JSON.stringify(address)} ${bind}`);
 });
 
+/*
 server.listen(port);
+*/
+
+server.listen(port, host, () => {
+  console.log(`Serveur Express en cours d'exécution sur http://${host}:${port}`);
+});
