@@ -2,6 +2,7 @@ import styles from "./Main.module.scss";
 import Table from "../../components/Table/Table";
 import { useEffect, useState } from "react";
 import MyContext from '../../CreateContext.js';
+import config from '../../config/config';
 
 function Mainpage() {
 
@@ -19,7 +20,7 @@ function Mainpage() {
 
   useEffect(() => {
     async function fetchdata() {
-      const response = await fetch("http://localhost:3000/tab");
+      const response = await fetch(`${config.backurl}/tab`);
       const data = await response.json();
       setData(data);
     }
@@ -34,7 +35,7 @@ function Mainpage() {
       }
     }
     if (searchText.length > 2) {
-      fetch(`http://localhost:3000/tab`, {
+      fetch(`${config.backurl}/tab`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

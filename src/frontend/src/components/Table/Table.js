@@ -3,6 +3,7 @@ import validate from "../../assets/images/validate.png";
 import Column from "../Column/Column";
 import { useEffect, useState, useContext } from "react";
 import MyContext from '../../CreateContext.js';
+import config from '../../config/config';
 
 function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, tabComment, tabLastCreated, tabLastUpdated,tabId, id }) {
   const [data, setData] = useState([]);
@@ -17,7 +18,7 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
 
   useEffect(() => {
     async function fetchdata() {
-      const response = await fetch(`http://localhost:3000/col/${id}`);
+      const response = await fetch(`${config.backurl}/col/${id}`);
       const data = await response.json();
       setData(data);
     }
@@ -32,7 +33,7 @@ function Table({ tabCollection, tabName, tabDesc, tabEnum, tabCount, tabModel, t
       }
     }
 
-    fetch(`http://localhost:3000/tab/${id}`, {
+    fetch(`${config.backurl}/tab/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

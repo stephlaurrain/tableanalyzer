@@ -2,6 +2,7 @@ import styles from "./Column.module.scss";
 import { useState, useContext } from "react";
 import validate from "../../assets/images/validate.png";
 import MyContext from '../../CreateContext.js';
+import config from '../../config/config';
 
 function Column({ onClick, col_id,
   colKey,
@@ -45,7 +46,7 @@ function Column({ onClick, col_id,
         }
       }
 
-      fetch(`http://localhost:3000/col/${id}`, {
+      fetch(`${config.backurl}/col/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
