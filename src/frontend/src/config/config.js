@@ -1,5 +1,6 @@
 const config = {
-    backurl: 'http://localhost:3000'
+    backurl: 'http://localhost/tabackend',
+    root:'tableanalyze'
   };
 
 export default config;
