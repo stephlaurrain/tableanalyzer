@@ -1,6 +1,7 @@
 services:
   tableanalyze_img:
-    image: table_analyze_nginx_img
+    # image: table_analyze_img
+    build: ./docker/build/
     ports:
       - "80:80"
       - "3000:3000"
@@ -8,16 +9,10 @@ services:
       - "3306:3306"
     volumes:
       - ./src/frontend:/root/frontend
-      - ./src/frontend/build:/var/www/html
+      - ./src/frontend/build:/var/www/html/tableanalyze
       - ./src/backend:/root/backend
       - ./docker/build/install:/root/install
       - ./docker/build/conf/50-server.cnf:/etc/mysql/mariadb.conf.d/50-server.cnf
       - ./docker/build/conf/nginx/default:/etc/nginx/sites-enabled/default
       - ./docker/build/conf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
-
     container_name: tableanalyze_ctn
-
-
-
-
-
