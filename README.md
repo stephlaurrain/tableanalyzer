@@ -1,7 +1,7 @@
 
-# tableanalyzer
+# Tableanalyzer
 
-tableanalyzer is a web application that allows users to analyze data extracted from a DB2 database with slaurtools/inspectdbtable.py. The application is built with a frontend developed using React.js and a backend powered by Node.js, Express and Sequelize
+Tableanalyzer is a web application that allows users to analyze data extracted from a DB2 database with slaurtools/inspectdbtable.py. The application is built with a frontend developed using React.js and a backend powered by Node.js, Express and Sequelize
 
 
 ## Tech Stack
@@ -35,12 +35,23 @@ Go to the project directory
 ```
 
 Set the container up
+
 ```bash
   ./runta.sh
 ```
 
+Using "screen"
+
+```bash
+  apt install screen -y
+  screen ./runta.sh
+```
+
+
+
 Open [http://localhost:3000]
 
+Enjoy !
 
 
 ## Author
