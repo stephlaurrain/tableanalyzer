@@ -1,0 +1,26 @@
+{
+  "development": {
+    "logging": false,
+    "username": "tableanalyzer",
+    "password": "set_ur_password",
+    "database": "tableanalyzer",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "logging": false,
+    "username": "tableanalyzer",
+    "password": "set_ur_password",
+    "database": "tableanalyzer",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "logging": false,
+    "username": "root",
+    "password": "set_ur_password",
+    "database": "tableanalyzer",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
