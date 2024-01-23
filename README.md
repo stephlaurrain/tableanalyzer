@@ -1,7 +1,7 @@
 
-# TableAnalyzer
+# tableanalyzer
 
-TableAnalyzer is a web application that allows users to analyze data extracted from a DB2 database with slaurtools/inspectdbtable.py. The application is built with a frontend developed using React.js and a backend powered by Node.js, Express and Sequelize
+tableanalyzer is a web application that allows users to analyze data extracted from a DB2 database with slaurtools/inspectdbtable.py. The application is built with a frontend developed using React.js and a backend powered by Node.js, Express and Sequelize
 
 
 ## Tech Stack
@@ -15,7 +15,7 @@ TableAnalyzer is a web application that allows users to analyze data extracted f
 
 ## Prerequisites
 
-Before running TableAnalyzer, ensure you have the following installed:
+Before running tableanalyzer, ensure you have the following installed:
 
 Docker
 

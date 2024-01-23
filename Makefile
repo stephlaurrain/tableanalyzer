@@ -1,8 +1,8 @@
 all: build
 
 PROJECT=opnclssrm
-CONTAINER_NAME=tableanalyze_ctn
-IMAGE_NAME=tableanalyze_img
+CONTAINER_NAME=tableanalyzer_ctn
+IMAGE_NAME=tableanalyzer_img
 DOCKER_USER=docker
 REMOTE_ROOT=-w '/root'
 

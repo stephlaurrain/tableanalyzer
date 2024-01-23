@@ -53,9 +53,9 @@ server {
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 
-	location /tableanalyze {
+	location /tableanalyzer {
         root /var/www/html;
-        try_files $uri $uri/ /tableanalyze/index.html;
+        try_files $uri $uri/ /tableanalyzer/index.html;
     }
 
 	location / {

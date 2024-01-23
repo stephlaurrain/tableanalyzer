@@ -1,3 +1,3 @@
 
 service mariadb start
-mysqldump -u root -p tableanalyze > tableanalyze.sql
+mysqldump -u root -p tableanalyzer > tableanalyzer.sql

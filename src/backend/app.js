@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 // Routes
-const taRoutes = require('./routes/tableanalyze');
+const taRoutes = require('./routes/tableanalyzer');
 const log = require('./utils/winston');
 
 // App

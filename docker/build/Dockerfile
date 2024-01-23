@@ -35,7 +35,7 @@ RUN npm install -g yarn; \
     yarn global add sequelize-cli; \
     yarn global add sequelize-mig; \
     mysql -u root < /tmp/createdb.sql; \
-    mysql -u root --database="tableanalyze" < /tmp/createtables.sql;
+    mysql -u root --database="tableanalyzer" < /tmp/createtables.sql;
 RUN cd /root/frontend && yarn; \
     cd /var/www/html/tableanalyzer && yarn;
 #clean

@@ -1,3 +1,3 @@
 DROP USER adm;
-DROP USER tableanalyze;
-DROP DATABASE tableanalyze;
+DROP USER tableanalyzer;
+DROP DATABASE tableanalyzer;

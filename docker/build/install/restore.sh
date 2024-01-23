@@ -1,3 +1,3 @@
 
 service mariadb start
-mysql -u root --database="tableanalyze" < /root/install/sql/tableanalyze.sql
+mysql -u root --database="tableanalyzer" < /root/install/sql/tableanalyzer.sql
